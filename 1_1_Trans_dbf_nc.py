@@ -11,8 +11,8 @@ xytable = DBF("/lustre/nobackup/WUR/ESG/zhou111/Data/Raw/HarvestArea/spam2005v3r
 xy_df = pd.DataFrame(iter(xytable))
 print("Column names in DBF file:", xy_df.columns)
 
-xy_df = pd.DataFrame(iter(xytable))[['alloc_key', 'x', 'y']]
-xy_df = xy_df.rename(columns={'x': 'lon', 'y': 'lat'})
+xy_df = pd.DataFrame(iter(xytable))[['X', 'Y', 'ALLOC_KEY']]
+xy_df = xy_df.rename(columns={'X': 'lon', 'Y': 'lat'})
 lat_vals = np.sort(xy_df['lat'].unique())
 lon_vals = np.sort(xy_df['lon'].unique())
 

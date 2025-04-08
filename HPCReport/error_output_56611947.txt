@@ -1,0 +1,6 @@
+load python 3.12.0.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
+load tcltk 8.5.13 (GCC) library and binaries.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
