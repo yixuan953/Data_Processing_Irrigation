@@ -2,65 +2,168 @@ import os
 import numpy as np
 import rasterio
 import xarray as xr
-from scipy.interpolate import griddata
+from affine import Affine
+from rasterio.warp import reproject, Resampling
 
-# Path for the original fertilization data
+# Path for the original data
 input_path = '/lustre/nobackup/WUR/ESG/zhou111/Data/Raw/HarvestArea/spam2005/geotiff_global'
 output_path = "/lustre/nobackup/WUR/ESG/zhou111/Data/Havest_Area"
-crop_list = ["ACOF", "BANA", "BARL", "BEAN", "CASS", "CHIC", "CNUT", "COCO", "COTT", "COWP", "GROU", "LENT", "MAIZ", "OCER", "OFIB", "OILP", "OOIL", "ORTS", "PIGE", "PLNT", "PMIL", "POTA", "RAPE", "RCOF", "REST", "RICE", "SESA", "SMIL", "SORG", "SUGB", "SUGC", "SUNF", "SWPO", "TEAS", "TEMF", "TOBA", "TROF", "VEGE", "WHEA", "YAMS"]
+# crop_list = ["ACOF", "BANA", "BARL", "BEAN", "CASS", "CHIC", "CNUT", "COCO", "COTT", "COWP", "GROU", "LENT", "MAIZ", "OCER", "OFIB", "OILP", "OOIL", "ORTS", "PIGE", "PLNT", "PMIL", "POTA", "RAPE", "RCOF", "REST", "RICE", "SESA", "SMIL", "SORG", "SUGB", "SUGC", "SUNF", "SWPO", "TEAS", "TEMF", "TOBA", "TROF", "VEGE", "WHEA", "YAMS"]
+crop_list = ["SOYB", "OPUL"]
+
+# Define our 0.5 degree global grid
 lon_new = np.arange(-179.75, 180, 0.5)
 lat_new = np.arange(89.75, -90, -0.5)
-lon_grid, lat_grid = np.meshgrid(lon_new, lat_new)
 
-def read_and_interpolate_raster(file_path):
+def aggregate_to_half_degree(file_path, aggregation_method):
+    """
+    Aggregate a raster to a half-degree resolution.
+    
+    Parameters:
+    -----------
+    file_path : str
+        Path to the input raster file
+    aggregation_method : str
+        Method to use for aggregation ('sum' or 'mean')
+    
+    Returns:
+    --------
+    numpy.ndarray
+        Aggregated data on the half-degree grid
+    """
     with rasterio.open(file_path) as src:
-         data = src.read(1)
-         transform = src.transform
-         height, width = data.shape
+        # Get input data and metadata
+        data = src.read(1)
+        nodata = src.nodata
+        if nodata is None:
+            if src.dtypes[0] == 'float32':
+                nodata = -9999.0
+            else:
+                nodata = 0
+        
+        # Create mask for valid data
+        valid_mask = (data != nodata)
+        
+        # Convert invalid values to NaN for proper treatment
+        data = data.astype(np.float64)
+        data[~valid_mask] = np.nan
+        
+        # Create target array for the half-degree grid
+        output_shape = (len(lat_new), len(lon_new))
+        output_data = np.zeros(output_shape, dtype=np.float64)
+        output_weights = np.zeros(output_shape, dtype=np.float64)
+        
+        # Get geotransform of the source raster
+        src_transform = src.transform
+        
+        # Calculate pixel size of the source raster
+        src_pixel_width = src_transform[0]
+        src_pixel_height = -src_transform[4]  # Negative because rows go from north to south
+        
+        # Initialize a counter for progress reporting
+        total_pixels = data.shape[0] * data.shape[1]
+        processed_pixels = 0
+        
+        # Process each valid pixel in the source raster
+        for y in range(data.shape[0]):
+            for x in range(data.shape[1]):
+                if np.isnan(data[y, x]):
+                    continue
+                    
+                # Get the lat/lon of this pixel
+                lon, lat = rasterio.transform.xy(src_transform, y, x)
+                
+                # Find where this pixel belongs in our half-degree grid
+                lon_idx = np.abs(lon_new - lon).argmin()
+                lat_idx = np.abs(lat_new - lat).argmin()
+                
+                # Calculate contribution based on aggregation method
+                if aggregation_method == 'sum':
+                    # For sum, we add the pixel value
+                    output_data[lat_idx, lon_idx] += data[y, x]
+                    output_weights[lat_idx, lon_idx] += 1
+                elif aggregation_method == 'mean':
+                    # For mean, we add the pixel value and count for averaging later
+                    output_data[lat_idx, lon_idx] += data[y, x]
+                    output_weights[lat_idx, lon_idx] += 1
+                
+                processed_pixels += 1
+                if processed_pixels % 1000000 == 0:
+                    print(f"Processed {processed_pixels}/{total_pixels} pixels")
+        
+        # Finalize the aggregation
+        if aggregation_method == 'mean':
+            # Compute mean where we have data
+            valid_cells = output_weights > 0
+            output_data[valid_cells] /= output_weights[valid_cells]
+        
+        # Set cells with no data to NaN
+        output_data[output_weights == 0] = np.nan
+        
+        return output_data
 
-         # Get lat/lon of original raster
-         cols, rows = np.meshgrid(np.arange(width), np.arange(height))
-         xs, ys = rasterio.transform.xy(transform, rows, cols)
-         lon_orig = np.array(xs)
-         lat_orig = np.array(ys)
-
-         # Flatten for interpolation
-         points = np.vstack((lon_orig.ravel(), lat_orig.ravel())).T
-         values = data.ravel()
-
-         # Remove nodata
-         valid = (values > -1e3) & (values < 1e3)
-         values = values[valid]
-         points = points[valid]
-
-         # Interpolate to 0.5° grid
-         data_interp = griddata(points, values, (lon_grid, lat_grid), method='linear')
-         data_interp = np.where(np.isnan(data_interp), -9999.0, data_interp)  # Fill missing
-
-         return data_interp
-
+# Create output directory if it doesn't exist
+os.makedirs(output_path, exist_ok=True)
 
 for crop in crop_list:
-    HA_file = os.path.join(input_path, f"SPAM2005V3r2_global_H_TA_{crop}_A.tif")
-    Irri_file = os.path.join(input_path, f"SPAM2005V3r2_global_H_TA_{crop}_I.tif")
-
-    HA_interp = read_and_interpolate_raster(HA_file)
-    Irri_interp = read_and_interpolate_raster(Irri_file)
-
-    ds = xr.Dataset(
-        {
-            "Harvest Area": (["lat", "lon"], HA_interp),
-            "Irrigated Proportion": (["lat", "lon"], Irri_interp),
-        },
-        coords={
-            "lon": lon_new,
-            "lat": lat_new
-        },
-    )
-    ds["Harvest Area"] = ds["Harvest Area"].where(~np.isnan(ds["Harvest Area"]))
-    ds["Irrigated Proportion"] = ds["Irrigated Proportion"].where(~np.isnan(ds["Irrigated Proportion"]))
-
-    # Save NetCDF
-    nc_file = os.path.join(output_path, f"{crop}_HA_Irri_05d.nc")
-    ds.to_netcdf(nc_file)
-    print(f"Saved: {nc_file}")
+    try:
+        print(f"Processing crop: {crop}")
+        HA_file = os.path.join(input_path, f"SPAM2005V3r2_global_H_TA_{crop}_A.tif")
+        Irri_file = os.path.join(input_path, f"SPAM2005V3r2_global_H_TI_{crop}_I.tif")
+        
+        # Check if files exist
+        if not os.path.exists(HA_file):
+            print(f"Warning: {HA_file} does not exist. Skipping.")
+            continue
+        if not os.path.exists(Irri_file):
+            print(f"Warning: {Irri_file} does not exist. Skipping.")
+            continue
+        
+        print(f"Aggregating Harvest Area for {crop} (summing values)")
+        HA_aggregated = aggregate_to_half_degree(HA_file, 'sum')
+        
+        print(f"Aggregating Irrigated Proportion for {crop} (averaging values)")
+        Irri_aggregated = aggregate_to_half_degree(Irri_file, 'mean')
+        
+        # For irrigated proportion, ensure values are between 0 and 1
+        Irri_aggregated = np.clip(Irri_aggregated, 0, 1)
+        
+        # Create dataset
+        ds = xr.Dataset(
+            {
+                "Harvest_Area": (["lat", "lon"], HA_aggregated),
+                "Irrigated_Proportion": (["lat", "lon"], Irri_aggregated),
+            },
+            coords={
+                "lon": lon_new,
+                "lat": lat_new
+            },
+        )
+        
+        # Add proper attributes
+        ds["Harvest_Area"].attrs = {
+            "units": "ha",
+            "long_name": f"Harvested area for {crop}",
+            "_FillValue": np.nan,
+            "aggregation_method": "sum"
+        }
+        
+        ds["Irrigated_Proportion"].attrs = {
+            "units": "fraction",
+            "long_name": f"Irrigated proportion for {crop}",
+            "_FillValue": np.nan,
+            "aggregation_method": "mean"
+        }
+        
+        # Save NetCDF with compression
+        nc_file = os.path.join(output_path, f"{crop}_HA_Irri_05d.nc")
+        encoding = {
+            "Harvest_Area": {"zlib": True, "complevel": 5},
+            "Irrigated_Proportion": {"zlib": True, "complevel": 5}
+        }
+        ds.to_netcdf(nc_file, encoding=encoding)
+        print(f"Saved: {nc_file}")
+        
+    except Exception as e:
+        print(f"Error processing {crop}: {str(e)}")
+        continue
