@@ -1,0 +1,31 @@
+remove cdo 1.9.3 (GCC) library and binaries.
+remove hdf5 1.10.1 (gcc) library and binaries.
+remove Scientific Linux 7 libraries.
+load cdo 1.9.3 (GCC) library and binaries.
+load hdf5 1.10.1 (gcc) library and binaries.
+load Scientific Linux 7 libraries.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
+load nco 4.7.5 (gcc) library and binaries.
+remove netcdf 4.6.1 (GCC) library and binaries.
+remove Scientific Linux 7 libraries.
+load netcdf 4.6.1 (GCC) library and binaries.
+load Scientific Linux 7 libraries.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
+remove netcdf 4.6.1 (GCC) library and binaries.
+remove Scientific Linux 7 libraries.
+load netcdf 4.6.1 (GCC) library and binaries.
+load Scientific Linux 7 libraries.
+cdo ifthen: Started child process "selname,Yp /lustre/nobackup/WUR/ESG/zhou111/Model_Results/1_Yp_WOFOST/Yangtze/Yangtze_secondrice_Yp_mask.nc (pipe1.1)".
+cdo ifthen: Started child process "selname,RICE_Irrigated_Area /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/Yangtze_Irrigated_HA.nc (pipe1.2)".
+cdo(3) selname: Processed 1380 values from 9 variables over 1 timestep [0.01s]
+cdo(2) selname: Processed 1380 values from 6 variables over 1 timestep [0.01s]
+cdo ifthen: Processed 2760 values from 2 variables over 2 timesteps [0.01s 24MB]
+cdo mulc: Processed 1380 values from 1 variable over 1 timestep [0.00s 23MB]
+cdo setmisstoc: Processed 1380 values from 1 variable over 1 timestep [0.01s 23MB]
+cdo sub: Started child process "selname,RICE_Irrigated_Area /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/Yangtze_Irrigated_HA.nc (pipe1.1)".
+cdo(2) selname: Processed 1380 values from 9 variables over 1 timestep [0.01s]
+cdo sub: Processed 2760 values from 2 variables over 2 timesteps [0.01s 24MB]
