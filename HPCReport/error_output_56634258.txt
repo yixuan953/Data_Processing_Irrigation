@@ -1,0 +1,169 @@
+remove cdo 1.9.3 (GCC) library and binaries.
+remove hdf5 1.10.1 (gcc) library and binaries.
+remove Scientific Linux 7 libraries.
+load cdo 1.9.3 (GCC) library and binaries.
+load hdf5 1.10.1 (gcc) library and binaries.
+load Scientific Linux 7 libraries.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
+load nco 4.7.5 (gcc) library and binaries.
+remove netcdf 4.6.1 (GCC) library and binaries.
+remove Scientific Linux 7 libraries.
+load netcdf 4.6.1 (GCC) library and binaries.
+load Scientific Linux 7 libraries.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
+remove netcdf 4.6.1 (GCC) library and binaries.
+remove Scientific Linux 7 libraries.
+load netcdf 4.6.1 (GCC) library and binaries.
+load Scientific Linux 7 libraries.
+cdo gencon (Abort): Too few streams specified! Operator needs 1 input and 1 output streams.
+cdo remapbil (Abort): Open failed on /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/lonlat_grid.nc!
+cdo selname: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/Yangtze_Irri_HA_regular.nc<
+No such file or directory
+cdo ntime: Processed 1 variable over 279 timesteps [0.02s 23MB]
+cdo duplicate: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_Irri_HA.nc<
+No such file or directory
+cdo showtimestamp: Processed 1 variable over 279 timesteps [0.01s 22MB]
+cdo showtimestamp: Processed 1 variable over 279 timesteps [0.01s 22MB]
+cdo settaxis: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_Irri_HA_timesteps.nc<
+No such file or directory
+cdo mul: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_Irri_HA_timed.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_mainrice_multiply.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_mainrice.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_Irri_HA_timesteps.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_Irri_HA_timed.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_Irri_HA.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_mainrice_multiply.nc': No such file or directory
+cdo selname: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/Yangtze_Irri_HA_regular.nc<
+No such file or directory
+cdo ntime: Processed 1 variable over 234 timesteps [0.01s 23MB]
+cdo duplicate: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_Irri_HA.nc<
+No such file or directory
+cdo showtimestamp: Processed 1 variable over 234 timesteps [0.01s 22MB]
+cdo showtimestamp: Processed 1 variable over 234 timesteps [0.01s 22MB]
+cdo settaxis: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_Irri_HA_timesteps.nc<
+No such file or directory
+cdo mul: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_Irri_HA_timed.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_secondrice_multiply.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_secondrice.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_Irri_HA_timesteps.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_Irri_HA_timed.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_Irri_HA.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_secondrice_multiply.nc': No such file or directory
+cdo selname: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/Yangtze_Irri_HA_regular.nc<
+No such file or directory
+cdo ntime: Processed 1 variable over 350 timesteps [0.01s 22MB]
+cdo duplicate: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_Irri_HA.nc<
+No such file or directory
+cdo showtimestamp: Processed 1 variable over 350 timesteps [0.01s 23MB]
+cdo showtimestamp: Processed 1 variable over 350 timesteps [0.02s 22MB]
+cdo settaxis: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_Irri_HA_timesteps.nc<
+No such file or directory
+cdo mul: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_Irri_HA_timed.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_winterwheat_multiply.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_winterwheat.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_Irri_HA_timesteps.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_Irri_HA_timed.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_Irri_HA.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_winterwheat_multiply.nc': No such file or directory
+cdo selname: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/Yangtze_Irri_HA_regular.nc<
+No such file or directory
+cdo ntime: Processed 1 variable over 193 timesteps [0.00s 22MB]
+cdo duplicate: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_Irri_HA.nc<
+No such file or directory
+cdo showtimestamp: Processed 1 variable over 193 timesteps [0.01s 23MB]
+cdo showtimestamp: Processed 1 variable over 193 timesteps [0.01s 22MB]
+cdo settaxis: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_Irri_HA_timesteps.nc<
+No such file or directory
+cdo mul: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_Irri_HA_timed.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_soybean_multiply.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_soybean.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_Irri_HA_timesteps.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_Irri_HA_timed.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_Irri_HA.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_soybean_multiply.nc': No such file or directory
+cdo selname: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/Yangtze_Irri_HA_regular.nc<
+No such file or directory
+cdo ntime: Processed 1 variable over 256 timesteps [0.01s 23MB]
+cdo duplicate: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_Irri_HA.nc<
+No such file or directory
+cdo showtimestamp: Processed 1 variable over 256 timesteps [0.01s 22MB]
+cdo showtimestamp: Processed 1 variable over 256 timesteps [0.01s 22MB]
+cdo settaxis: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_Irri_HA_timesteps.nc<
+No such file or directory
+cdo mul: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_Irri_HA_timed.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_maize_multiply.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_maize.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_Irri_HA_timesteps.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_Irri_HA_timed.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_Irri_HA.nc': No such file or directory
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_maize_multiply.nc': No such file or directory
+cdo merge: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_*.nc<
+No such file or directory
+cdo enssum: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_*.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/total_demand.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/total_demand.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncks: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/total_demand.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncks: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+mv: cannot stat '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/all_crops_demand.nc': No such file or directory
+cdo div (Abort): Too many streams! Operator needs 2 input and 1 output streams.
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncks: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncks: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_proportion.nc': No such file or directory
+cdo div (Abort): Too many streams! Operator needs 2 input and 1 output streams.
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncks: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncks: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_proportion.nc': No such file or directory
+cdo div (Abort): Too many streams! Operator needs 2 input and 1 output streams.
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncks: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncks: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_proportion.nc': No such file or directory
+cdo div (Abort): Too many streams! Operator needs 2 input and 1 output streams.
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncks: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncks: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_proportion.nc': No such file or directory
+cdo div (Abort): Too many streams! Operator needs 2 input and 1 output streams.
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncks: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_proportion.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncks: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+rm: cannot remove '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_proportion.nc': No such file or directory
