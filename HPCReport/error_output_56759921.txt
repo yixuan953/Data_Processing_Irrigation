@@ -1,0 +1,692 @@
+remove cdo 1.9.3 (GCC) library and binaries.
+remove hdf5 1.10.1 (gcc) library and binaries.
+remove Scientific Linux 7 libraries.
+load cdo 1.9.3 (GCC) library and binaries.
+load hdf5 1.10.1 (gcc) library and binaries.
+load Scientific Linux 7 libraries.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
+load nco 4.7.5 (gcc) library and binaries.
+remove netcdf 4.6.1 (GCC) library and binaries.
+remove Scientific Linux 7 libraries.
+load netcdf 4.6.1 (GCC) library and binaries.
+load Scientific Linux 7 libraries.
+remove Scientific Linux 7 libraries.
+load Scientific Linux 7 libraries.
+remove netcdf 4.6.1 (GCC) library and binaries.
+remove Scientific Linux 7 libraries.
+load netcdf 4.6.1 (GCC) library and binaries.
+load Scientific Linux 7 libraries.
+cdo selname: Processed 1380 values from 9 variables over 1 timestep [0.00s 23MB]
+cdo ntime: Processed 1 variable over 279 timesteps [0.01s 23MB]
+cdo duplicate: Processed 1380 values from 1 variable over 1 timestep [0.02s 26MB]
+cdo showtimestamp: Processed 1 variable over 279 timesteps [0.02s 22MB]
+cdo settime (Abort): Integer parameter >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/cleaned_mainrice_timestamps_cleaned.txt< contains invalid character at position 1!
+cdo griddes: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_Irri_HA_timed.nc<
+No such file or directory
+Error (cdoDefineGrid): Read grid from /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/target_grid.txt failed!
+System error message: No such file or directory
+cdo mul: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_mainrice_deficit_expanded.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_mainrice_multiply.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_mainrice.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+cdo selname: Processed 1380 values from 9 variables over 1 timestep [0.01s 23MB]
+cdo ntime: Processed 1 variable over 234 timesteps [0.01s 23MB]
+cdo duplicate: Processed 1380 values from 1 variable over 1 timestep [0.02s 25MB]
+cdo showtimestamp: Processed 1 variable over 234 timesteps [0.01s 22MB]
+cdo settime (Abort): Integer parameter >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/cleaned_secondrice_timestamps_cleaned.txt< contains invalid character at position 1!
+cdo griddes: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_Irri_HA_timed.nc<
+No such file or directory
+Error (cdoDefineGrid): Read grid from /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/target_grid.txt failed!
+System error message: No such file or directory
+cdo mul: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_secondrice_deficit_expanded.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_secondrice_multiply.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_secondrice.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+cdo selname: Processed 1380 values from 9 variables over 1 timestep [0.00s 24MB]
+cdo ntime: Processed 1 variable over 350 timesteps [0.02s 23MB]
+cdo duplicate: Processed 1380 values from 1 variable over 1 timestep [0.03s 27MB]
+cdo showtimestamp: Processed 1 variable over 350 timesteps [0.03s 22MB]
+cdo settime (Abort): Integer parameter >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/cleaned_winterwheat_timestamps_cleaned.txt< contains invalid character at position 1!
+cdo griddes: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_Irri_HA_timed.nc<
+No such file or directory
+Error (cdoDefineGrid): Read grid from /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/target_grid.txt failed!
+System error message: No such file or directory
+cdo mul: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_winterwheat_deficit_expanded.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_winterwheat_multiply.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_winterwheat.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+cdo selname: Processed 1380 values from 9 variables over 1 timestep [0.00s 23MB]
+cdo ntime: Processed 1 variable over 193 timesteps [0.01s 22MB]
+cdo duplicate: Processed 1380 values from 1 variable over 1 timestep [0.01s 25MB]
+cdo showtimestamp: Processed 1 variable over 193 timesteps [0.01s 22MB]
+cdo settime (Abort): Integer parameter >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/cleaned_soybean_timestamps_cleaned.txt< contains invalid character at position 1!
+cdo griddes: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_Irri_HA_timed.nc<
+No such file or directory
+Error (cdoDefineGrid): Read grid from /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/target_grid.txt failed!
+System error message: No such file or directory
+cdo mul: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_soybean_deficit_expanded.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_soybean_multiply.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_soybean.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+cdo selname: Processed 1380 values from 9 variables over 1 timestep [0.02s 23MB]
+cdo ntime: Processed 1 variable over 256 timesteps [0.02s 23MB]
+cdo duplicate: Processed 1380 values from 1 variable over 1 timestep [0.03s 26MB]
+cdo showtimestamp: Processed 1 variable over 256 timesteps [0.01s 23MB]
+cdo settime (Abort): Integer parameter >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/cleaned_maize_timestamps_cleaned.txt< contains invalid character at position 1!
+cdo griddes: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_Irri_HA_timed.nc<
+No such file or directory
+Error (cdoDefineGrid): Read grid from /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/target_grid.txt failed!
+System error message: No such file or directory
+cdo mul: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_maize_deficit_expanded.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/result_maize_multiply.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_renamed_maize.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+HDF5-DIAG: Error detected in HDF5 (1.10.1) thread 0:
+  #000: H5P.c line 252 in H5Pcreate(): not a property list class
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.10.1) thread 0:
+  #000: H5Pfapl.c line 1907 in H5Pset_fclose_degree(): can't find object for ID
+    major: Object atom
+    minor: Unable to find atom information (already closed?)
+  #001: H5Pint.c line 3815 in H5P_object_verify(): property list is not a member of the class
+    major: Property lists
+    minor: Unable to register new atom
+  #002: H5Pint.c line 3765 in H5P_isa_class(): not a property list
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Warning! ***HDF5 library version mismatched error***
+The HDF5 header files used to compile this application do not match
+the version used by the HDF5 library to which this application is linked.
+Data corruption or segmentation faults may occur if the application continues.
+This can happen when an application was compiled by one version of HDF5 but
+linked with a different version of static or shared HDF5 library.
+You should recompile the application or check your shared library related
+settings such as 'LD_LIBRARY_PATH'.
+You can, at your own risk, disable this warning by setting the environment
+variable 'HDF5_DISABLE_VERSION_CHECK' to a value of '1'.
+Setting it to 2 or higher will suppress the warning messages totally.
+Headers are 1.8.9, library is 1.10.1
+	    SUMMARY OF THE HDF5 CONFIGURATION
+	    =================================
+
+General Information:
+-------------------
+                   HDF5 Version: 1.10.1
+                  Configured on: Tue Jul  4 13:49:35 CEST 2017
+                  Configured by: root@master1
+                    Host system: x86_64-unknown-linux-gnu
+              Uname information: Linux master1 3.10.0-327.4.5.el7.x86_64 #1 SMP Mon Jan 25 13:30:47 CST 2016 x86_64 x86_64 x86_64 GNU/Linux
+                       Byte sex: little-endian
+             Installation point: /cm/shared/apps/hdf5/gcc/64/1.10.1
+
+Compiling Options:
+------------------
+                     Build Mode: production
+              Debugging Symbols: no
+                        Asserts: no
+                      Profiling: no
+             Optimization Level: high
+
+Linking Options:
+----------------
+                      Libraries: static, shared
+  Statically Linked Executables: 
+                        LDFLAGS: 
+                     H5_LDFLAGS: 
+                     AM_LDFLAGS: 
+                Extra libraries: -lz -ldl -lm 
+                       Archiver: ar
+                         Ranlib: ranlib
+
+Languages:
+----------
+                              C: yes
+                     C Compiler: /cm/shared/apps/gcc/5.4.0/bin/gcc ( gcc (GCC) 5.4.0)
+                       CPPFLAGS: 
+                    H5_CPPFLAGS: -D_GNU_SOURCE -D_POSIX_C_SOURCE=200112L   -DNDEBUG -UH5_DEBUG_API
+                    AM_CPPFLAGS: 
+                        C Flags: -fPIC
+                     H5 C Flags: -std=c99 -pedantic -Wall -Wextra -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Wfloat-equal -Wmissing-format-attribute -Wpacked -Wdisabled-optimization -Wformat=2 -Wunreachable-code -Wendif-labels -Wdeclaration-after-statement -Wold-style-definition -Winvalid-pch -Wvariadic-macros -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wunused-macros -Wunsafe-loop-optimizations -Wc++-compat -Wnormalized -Wlogical-op -Wlarger-than=2048 -Wvla -Wsync-nand -Wframe-larger-than=16384 -Wpacked-bitfield-compat -Wstrict-overflow=5 -Wjump-misses-init -Wunsuffixed-float-constants -Wdouble-promotion -Wtrampolines -Wstack-usage=8192 -Wvector-operation-performance -Wdate-time -Warray-bounds=2 -Wc99-c11-compat -fstdarg-opt -s -Wno-inline -Wno-aggregate-return -Wno-missing-noreturn -Wno-suggest-attribute=const -Wno-suggest-attribute=pure -Wno-suggest-attribute=noreturn -Wno-suggest-attribute=format -O3
+                     AM C Flags: 
+               Shared C Library: yes
+               Static C Library: yes
+
+
+                        Fortran: yes
+               Fortran Compiler: /cm/shared/apps/gcc/5.4.0/bin/gfortran ( GNU Fortran (GCC) 5.4.0)
+                  Fortran Flags: 
+               H5 Fortran Flags:  -pedantic -Wall -Wextra -Wunderflow -Wimplicit-interface -Wsurprising -Wno-c-binding-type  -s -O2
+               AM Fortran Flags: 
+         Shared Fortran Library: yes
+         Static Fortran Library: yes
+
+                            C++: no
+
+                           Java: no
+
+
+Features:
+---------
+                  Parallel HDF5: no
+             High-level library: yes
+                   Threadsafety: no
+            Default API mapping: v110
+ With deprecated public symbols: yes
+         I/O filters (external): deflate(zlib)
+                            MPE: no
+                     Direct VFD: no
+                        dmalloc: no
+ Packages w/ extra debug output: none
+                    API tracing: no
+           Using memory checker: no
+Memory allocation sanity checks: no
+            Metadata trace file: no
+         Function stack tracing: no
+      Strict file format checks: no
+   Optimization instrumentation: no
+Bye...
+/shared/apps/slurm/var/spool/node232/job56759921/slurm_script: line 95: 4104348 Aborted                 cdo -enlarge,$irrigation_amount_file $process_dir/temp_renamed_${croptype}.nc $process_dir/temp_enlarged_${croptype}.nc
+cdo settaxis: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_enlarged_mainrice.nc<
+No such file or directory
+cdo selname: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_timeaxis_mainrice.nc<
+No such file or directory
+cdo setmissval: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_selected_mainrice.nc<
+No such file or directory
+HDF5-DIAG: Error detected in HDF5 (1.10.1) thread 0:
+  #000: H5P.c line 252 in H5Pcreate(): not a property list class
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.10.1) thread 0:
+  #000: H5Pfapl.c line 1907 in H5Pset_fclose_degree(): can't find object for ID
+    major: Object atom
+    minor: Unable to find atom information (already closed?)
+  #001: H5Pint.c line 3815 in H5P_object_verify(): property list is not a member of the class
+    major: Property lists
+    minor: Unable to register new atom
+  #002: H5Pint.c line 3765 in H5P_isa_class(): not a property list
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Warning! ***HDF5 library version mismatched error***
+The HDF5 header files used to compile this application do not match
+the version used by the HDF5 library to which this application is linked.
+Data corruption or segmentation faults may occur if the application continues.
+This can happen when an application was compiled by one version of HDF5 but
+linked with a different version of static or shared HDF5 library.
+You should recompile the application or check your shared library related
+settings such as 'LD_LIBRARY_PATH'.
+You can, at your own risk, disable this warning by setting the environment
+variable 'HDF5_DISABLE_VERSION_CHECK' to a value of '1'.
+Setting it to 2 or higher will suppress the warning messages totally.
+Headers are 1.8.9, library is 1.10.1
+	    SUMMARY OF THE HDF5 CONFIGURATION
+	    =================================
+
+General Information:
+-------------------
+                   HDF5 Version: 1.10.1
+                  Configured on: Tue Jul  4 13:49:35 CEST 2017
+                  Configured by: root@master1
+                    Host system: x86_64-unknown-linux-gnu
+              Uname information: Linux master1 3.10.0-327.4.5.el7.x86_64 #1 SMP Mon Jan 25 13:30:47 CST 2016 x86_64 x86_64 x86_64 GNU/Linux
+                       Byte sex: little-endian
+             Installation point: /cm/shared/apps/hdf5/gcc/64/1.10.1
+
+Compiling Options:
+------------------
+                     Build Mode: production
+              Debugging Symbols: no
+                        Asserts: no
+                      Profiling: no
+             Optimization Level: high
+
+Linking Options:
+----------------
+                      Libraries: static, shared
+  Statically Linked Executables: 
+                        LDFLAGS: 
+                     H5_LDFLAGS: 
+                     AM_LDFLAGS: 
+                Extra libraries: -lz -ldl -lm 
+                       Archiver: ar
+                         Ranlib: ranlib
+
+Languages:
+----------
+                              C: yes
+                     C Compiler: /cm/shared/apps/gcc/5.4.0/bin/gcc ( gcc (GCC) 5.4.0)
+                       CPPFLAGS: 
+                    H5_CPPFLAGS: -D_GNU_SOURCE -D_POSIX_C_SOURCE=200112L   -DNDEBUG -UH5_DEBUG_API
+                    AM_CPPFLAGS: 
+                        C Flags: -fPIC
+                     H5 C Flags: -std=c99 -pedantic -Wall -Wextra -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Wfloat-equal -Wmissing-format-attribute -Wpacked -Wdisabled-optimization -Wformat=2 -Wunreachable-code -Wendif-labels -Wdeclaration-after-statement -Wold-style-definition -Winvalid-pch -Wvariadic-macros -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wunused-macros -Wunsafe-loop-optimizations -Wc++-compat -Wnormalized -Wlogical-op -Wlarger-than=2048 -Wvla -Wsync-nand -Wframe-larger-than=16384 -Wpacked-bitfield-compat -Wstrict-overflow=5 -Wjump-misses-init -Wunsuffixed-float-constants -Wdouble-promotion -Wtrampolines -Wstack-usage=8192 -Wvector-operation-performance -Wdate-time -Warray-bounds=2 -Wc99-c11-compat -fstdarg-opt -s -Wno-inline -Wno-aggregate-return -Wno-missing-noreturn -Wno-suggest-attribute=const -Wno-suggest-attribute=pure -Wno-suggest-attribute=noreturn -Wno-suggest-attribute=format -O3
+                     AM C Flags: 
+               Shared C Library: yes
+               Static C Library: yes
+
+
+                        Fortran: yes
+               Fortran Compiler: /cm/shared/apps/gcc/5.4.0/bin/gfortran ( GNU Fortran (GCC) 5.4.0)
+                  Fortran Flags: 
+               H5 Fortran Flags:  -pedantic -Wall -Wextra -Wunderflow -Wimplicit-interface -Wsurprising -Wno-c-binding-type  -s -O2
+               AM Fortran Flags: 
+         Shared Fortran Library: yes
+         Static Fortran Library: yes
+
+                            C++: no
+
+                           Java: no
+
+
+Features:
+---------
+                  Parallel HDF5: no
+             High-level library: yes
+                   Threadsafety: no
+            Default API mapping: v110
+ With deprecated public symbols: yes
+         I/O filters (external): deflate(zlib)
+                            MPE: no
+                     Direct VFD: no
+                        dmalloc: no
+ Packages w/ extra debug output: none
+                    API tracing: no
+           Using memory checker: no
+Memory allocation sanity checks: no
+            Metadata trace file: no
+         Function stack tracing: no
+      Strict file format checks: no
+   Optimization instrumentation: no
+Bye...
+/shared/apps/slurm/var/spool/node232/job56759921/slurm_script: line 95: 4104352 Aborted                 cdo -enlarge,$irrigation_amount_file $process_dir/temp_renamed_${croptype}.nc $process_dir/temp_enlarged_${croptype}.nc
+cdo settaxis: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_enlarged_secondrice.nc<
+No such file or directory
+cdo selname: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_timeaxis_secondrice.nc<
+No such file or directory
+cdo setmissval: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_selected_secondrice.nc<
+No such file or directory
+HDF5-DIAG: Error detected in HDF5 (1.10.1) thread 0:
+  #000: H5P.c line 252 in H5Pcreate(): not a property list class
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.10.1) thread 0:
+  #000: H5Pfapl.c line 1907 in H5Pset_fclose_degree(): can't find object for ID
+    major: Object atom
+    minor: Unable to find atom information (already closed?)
+  #001: H5Pint.c line 3815 in H5P_object_verify(): property list is not a member of the class
+    major: Property lists
+    minor: Unable to register new atom
+  #002: H5Pint.c line 3765 in H5P_isa_class(): not a property list
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Warning! ***HDF5 library version mismatched error***
+The HDF5 header files used to compile this application do not match
+the version used by the HDF5 library to which this application is linked.
+Data corruption or segmentation faults may occur if the application continues.
+This can happen when an application was compiled by one version of HDF5 but
+linked with a different version of static or shared HDF5 library.
+You should recompile the application or check your shared library related
+settings such as 'LD_LIBRARY_PATH'.
+You can, at your own risk, disable this warning by setting the environment
+variable 'HDF5_DISABLE_VERSION_CHECK' to a value of '1'.
+Setting it to 2 or higher will suppress the warning messages totally.
+Headers are 1.8.9, library is 1.10.1
+	    SUMMARY OF THE HDF5 CONFIGURATION
+	    =================================
+
+General Information:
+-------------------
+                   HDF5 Version: 1.10.1
+                  Configured on: Tue Jul  4 13:49:35 CEST 2017
+                  Configured by: root@master1
+                    Host system: x86_64-unknown-linux-gnu
+              Uname information: Linux master1 3.10.0-327.4.5.el7.x86_64 #1 SMP Mon Jan 25 13:30:47 CST 2016 x86_64 x86_64 x86_64 GNU/Linux
+                       Byte sex: little-endian
+             Installation point: /cm/shared/apps/hdf5/gcc/64/1.10.1
+
+Compiling Options:
+------------------
+                     Build Mode: production
+              Debugging Symbols: no
+                        Asserts: no
+                      Profiling: no
+             Optimization Level: high
+
+Linking Options:
+----------------
+                      Libraries: static, shared
+  Statically Linked Executables: 
+                        LDFLAGS: 
+                     H5_LDFLAGS: 
+                     AM_LDFLAGS: 
+                Extra libraries: -lz -ldl -lm 
+                       Archiver: ar
+                         Ranlib: ranlib
+
+Languages:
+----------
+                              C: yes
+                     C Compiler: /cm/shared/apps/gcc/5.4.0/bin/gcc ( gcc (GCC) 5.4.0)
+                       CPPFLAGS: 
+                    H5_CPPFLAGS: -D_GNU_SOURCE -D_POSIX_C_SOURCE=200112L   -DNDEBUG -UH5_DEBUG_API
+                    AM_CPPFLAGS: 
+                        C Flags: -fPIC
+                     H5 C Flags: -std=c99 -pedantic -Wall -Wextra -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Wfloat-equal -Wmissing-format-attribute -Wpacked -Wdisabled-optimization -Wformat=2 -Wunreachable-code -Wendif-labels -Wdeclaration-after-statement -Wold-style-definition -Winvalid-pch -Wvariadic-macros -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wunused-macros -Wunsafe-loop-optimizations -Wc++-compat -Wnormalized -Wlogical-op -Wlarger-than=2048 -Wvla -Wsync-nand -Wframe-larger-than=16384 -Wpacked-bitfield-compat -Wstrict-overflow=5 -Wjump-misses-init -Wunsuffixed-float-constants -Wdouble-promotion -Wtrampolines -Wstack-usage=8192 -Wvector-operation-performance -Wdate-time -Warray-bounds=2 -Wc99-c11-compat -fstdarg-opt -s -Wno-inline -Wno-aggregate-return -Wno-missing-noreturn -Wno-suggest-attribute=const -Wno-suggest-attribute=pure -Wno-suggest-attribute=noreturn -Wno-suggest-attribute=format -O3
+                     AM C Flags: 
+               Shared C Library: yes
+               Static C Library: yes
+
+
+                        Fortran: yes
+               Fortran Compiler: /cm/shared/apps/gcc/5.4.0/bin/gfortran ( GNU Fortran (GCC) 5.4.0)
+                  Fortran Flags: 
+               H5 Fortran Flags:  -pedantic -Wall -Wextra -Wunderflow -Wimplicit-interface -Wsurprising -Wno-c-binding-type  -s -O2
+               AM Fortran Flags: 
+         Shared Fortran Library: yes
+         Static Fortran Library: yes
+
+                            C++: no
+
+                           Java: no
+
+
+Features:
+---------
+                  Parallel HDF5: no
+             High-level library: yes
+                   Threadsafety: no
+            Default API mapping: v110
+ With deprecated public symbols: yes
+         I/O filters (external): deflate(zlib)
+                            MPE: no
+                     Direct VFD: no
+                        dmalloc: no
+ Packages w/ extra debug output: none
+                    API tracing: no
+           Using memory checker: no
+Memory allocation sanity checks: no
+            Metadata trace file: no
+         Function stack tracing: no
+      Strict file format checks: no
+   Optimization instrumentation: no
+Bye...
+/shared/apps/slurm/var/spool/node232/job56759921/slurm_script: line 95: 4104356 Aborted                 cdo -enlarge,$irrigation_amount_file $process_dir/temp_renamed_${croptype}.nc $process_dir/temp_enlarged_${croptype}.nc
+cdo settaxis: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_enlarged_winterwheat.nc<
+No such file or directory
+cdo selname: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_timeaxis_winterwheat.nc<
+No such file or directory
+cdo setmissval: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_selected_winterwheat.nc<
+No such file or directory
+HDF5-DIAG: Error detected in HDF5 (1.10.1) thread 0:
+  #000: H5P.c line 252 in H5Pcreate(): not a property list class
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.10.1) thread 0:
+  #000: H5Pfapl.c line 1907 in H5Pset_fclose_degree(): can't find object for ID
+    major: Object atom
+    minor: Unable to find atom information (already closed?)
+  #001: H5Pint.c line 3815 in H5P_object_verify(): property list is not a member of the class
+    major: Property lists
+    minor: Unable to register new atom
+  #002: H5Pint.c line 3765 in H5P_isa_class(): not a property list
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Warning! ***HDF5 library version mismatched error***
+The HDF5 header files used to compile this application do not match
+the version used by the HDF5 library to which this application is linked.
+Data corruption or segmentation faults may occur if the application continues.
+This can happen when an application was compiled by one version of HDF5 but
+linked with a different version of static or shared HDF5 library.
+You should recompile the application or check your shared library related
+settings such as 'LD_LIBRARY_PATH'.
+You can, at your own risk, disable this warning by setting the environment
+variable 'HDF5_DISABLE_VERSION_CHECK' to a value of '1'.
+Setting it to 2 or higher will suppress the warning messages totally.
+Headers are 1.8.9, library is 1.10.1
+	    SUMMARY OF THE HDF5 CONFIGURATION
+	    =================================
+
+General Information:
+-------------------
+                   HDF5 Version: 1.10.1
+                  Configured on: Tue Jul  4 13:49:35 CEST 2017
+                  Configured by: root@master1
+                    Host system: x86_64-unknown-linux-gnu
+              Uname information: Linux master1 3.10.0-327.4.5.el7.x86_64 #1 SMP Mon Jan 25 13:30:47 CST 2016 x86_64 x86_64 x86_64 GNU/Linux
+                       Byte sex: little-endian
+             Installation point: /cm/shared/apps/hdf5/gcc/64/1.10.1
+
+Compiling Options:
+------------------
+                     Build Mode: production
+              Debugging Symbols: no
+                        Asserts: no
+                      Profiling: no
+             Optimization Level: high
+
+Linking Options:
+----------------
+                      Libraries: static, shared
+  Statically Linked Executables: 
+                        LDFLAGS: 
+                     H5_LDFLAGS: 
+                     AM_LDFLAGS: 
+                Extra libraries: -lz -ldl -lm 
+                       Archiver: ar
+                         Ranlib: ranlib
+
+Languages:
+----------
+                              C: yes
+                     C Compiler: /cm/shared/apps/gcc/5.4.0/bin/gcc ( gcc (GCC) 5.4.0)
+                       CPPFLAGS: 
+                    H5_CPPFLAGS: -D_GNU_SOURCE -D_POSIX_C_SOURCE=200112L   -DNDEBUG -UH5_DEBUG_API
+                    AM_CPPFLAGS: 
+                        C Flags: -fPIC
+                     H5 C Flags: -std=c99 -pedantic -Wall -Wextra -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Wfloat-equal -Wmissing-format-attribute -Wpacked -Wdisabled-optimization -Wformat=2 -Wunreachable-code -Wendif-labels -Wdeclaration-after-statement -Wold-style-definition -Winvalid-pch -Wvariadic-macros -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wunused-macros -Wunsafe-loop-optimizations -Wc++-compat -Wnormalized -Wlogical-op -Wlarger-than=2048 -Wvla -Wsync-nand -Wframe-larger-than=16384 -Wpacked-bitfield-compat -Wstrict-overflow=5 -Wjump-misses-init -Wunsuffixed-float-constants -Wdouble-promotion -Wtrampolines -Wstack-usage=8192 -Wvector-operation-performance -Wdate-time -Warray-bounds=2 -Wc99-c11-compat -fstdarg-opt -s -Wno-inline -Wno-aggregate-return -Wno-missing-noreturn -Wno-suggest-attribute=const -Wno-suggest-attribute=pure -Wno-suggest-attribute=noreturn -Wno-suggest-attribute=format -O3
+                     AM C Flags: 
+               Shared C Library: yes
+               Static C Library: yes
+
+
+                        Fortran: yes
+               Fortran Compiler: /cm/shared/apps/gcc/5.4.0/bin/gfortran ( GNU Fortran (GCC) 5.4.0)
+                  Fortran Flags: 
+               H5 Fortran Flags:  -pedantic -Wall -Wextra -Wunderflow -Wimplicit-interface -Wsurprising -Wno-c-binding-type  -s -O2
+               AM Fortran Flags: 
+         Shared Fortran Library: yes
+         Static Fortran Library: yes
+
+                            C++: no
+
+                           Java: no
+
+
+Features:
+---------
+                  Parallel HDF5: no
+             High-level library: yes
+                   Threadsafety: no
+            Default API mapping: v110
+ With deprecated public symbols: yes
+         I/O filters (external): deflate(zlib)
+                            MPE: no
+                     Direct VFD: no
+                        dmalloc: no
+ Packages w/ extra debug output: none
+                    API tracing: no
+           Using memory checker: no
+Memory allocation sanity checks: no
+            Metadata trace file: no
+         Function stack tracing: no
+      Strict file format checks: no
+   Optimization instrumentation: no
+Bye...
+/shared/apps/slurm/var/spool/node232/job56759921/slurm_script: line 95: 4104360 Aborted                 cdo -enlarge,$irrigation_amount_file $process_dir/temp_renamed_${croptype}.nc $process_dir/temp_enlarged_${croptype}.nc
+cdo settaxis: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_enlarged_soybean.nc<
+No such file or directory
+cdo selname: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_timeaxis_soybean.nc<
+No such file or directory
+cdo setmissval: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_selected_soybean.nc<
+No such file or directory
+HDF5-DIAG: Error detected in HDF5 (1.10.1) thread 0:
+  #000: H5P.c line 252 in H5Pcreate(): not a property list class
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+HDF5-DIAG: Error detected in HDF5 (1.10.1) thread 0:
+  #000: H5Pfapl.c line 1907 in H5Pset_fclose_degree(): can't find object for ID
+    major: Object atom
+    minor: Unable to find atom information (already closed?)
+  #001: H5Pint.c line 3815 in H5P_object_verify(): property list is not a member of the class
+    major: Property lists
+    minor: Unable to register new atom
+  #002: H5Pint.c line 3765 in H5P_isa_class(): not a property list
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Warning! ***HDF5 library version mismatched error***
+The HDF5 header files used to compile this application do not match
+the version used by the HDF5 library to which this application is linked.
+Data corruption or segmentation faults may occur if the application continues.
+This can happen when an application was compiled by one version of HDF5 but
+linked with a different version of static or shared HDF5 library.
+You should recompile the application or check your shared library related
+settings such as 'LD_LIBRARY_PATH'.
+You can, at your own risk, disable this warning by setting the environment
+variable 'HDF5_DISABLE_VERSION_CHECK' to a value of '1'.
+Setting it to 2 or higher will suppress the warning messages totally.
+Headers are 1.8.9, library is 1.10.1
+	    SUMMARY OF THE HDF5 CONFIGURATION
+	    =================================
+
+General Information:
+-------------------
+                   HDF5 Version: 1.10.1
+                  Configured on: Tue Jul  4 13:49:35 CEST 2017
+                  Configured by: root@master1
+                    Host system: x86_64-unknown-linux-gnu
+              Uname information: Linux master1 3.10.0-327.4.5.el7.x86_64 #1 SMP Mon Jan 25 13:30:47 CST 2016 x86_64 x86_64 x86_64 GNU/Linux
+                       Byte sex: little-endian
+             Installation point: /cm/shared/apps/hdf5/gcc/64/1.10.1
+
+Compiling Options:
+------------------
+                     Build Mode: production
+              Debugging Symbols: no
+                        Asserts: no
+                      Profiling: no
+             Optimization Level: high
+
+Linking Options:
+----------------
+                      Libraries: static, shared
+  Statically Linked Executables: 
+                        LDFLAGS: 
+                     H5_LDFLAGS: 
+                     AM_LDFLAGS: 
+                Extra libraries: -lz -ldl -lm 
+                       Archiver: ar
+                         Ranlib: ranlib
+
+Languages:
+----------
+                              C: yes
+                     C Compiler: /cm/shared/apps/gcc/5.4.0/bin/gcc ( gcc (GCC) 5.4.0)
+                       CPPFLAGS: 
+                    H5_CPPFLAGS: -D_GNU_SOURCE -D_POSIX_C_SOURCE=200112L   -DNDEBUG -UH5_DEBUG_API
+                    AM_CPPFLAGS: 
+                        C Flags: -fPIC
+                     H5 C Flags: -std=c99 -pedantic -Wall -Wextra -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Wfloat-equal -Wmissing-format-attribute -Wpacked -Wdisabled-optimization -Wformat=2 -Wunreachable-code -Wendif-labels -Wdeclaration-after-statement -Wold-style-definition -Winvalid-pch -Wvariadic-macros -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wunused-macros -Wunsafe-loop-optimizations -Wc++-compat -Wnormalized -Wlogical-op -Wlarger-than=2048 -Wvla -Wsync-nand -Wframe-larger-than=16384 -Wpacked-bitfield-compat -Wstrict-overflow=5 -Wjump-misses-init -Wunsuffixed-float-constants -Wdouble-promotion -Wtrampolines -Wstack-usage=8192 -Wvector-operation-performance -Wdate-time -Warray-bounds=2 -Wc99-c11-compat -fstdarg-opt -s -Wno-inline -Wno-aggregate-return -Wno-missing-noreturn -Wno-suggest-attribute=const -Wno-suggest-attribute=pure -Wno-suggest-attribute=noreturn -Wno-suggest-attribute=format -O3
+                     AM C Flags: 
+               Shared C Library: yes
+               Static C Library: yes
+
+
+                        Fortran: yes
+               Fortran Compiler: /cm/shared/apps/gcc/5.4.0/bin/gfortran ( GNU Fortran (GCC) 5.4.0)
+                  Fortran Flags: 
+               H5 Fortran Flags:  -pedantic -Wall -Wextra -Wunderflow -Wimplicit-interface -Wsurprising -Wno-c-binding-type  -s -O2
+               AM Fortran Flags: 
+         Shared Fortran Library: yes
+         Static Fortran Library: yes
+
+                            C++: no
+
+                           Java: no
+
+
+Features:
+---------
+                  Parallel HDF5: no
+             High-level library: yes
+                   Threadsafety: no
+            Default API mapping: v110
+ With deprecated public symbols: yes
+         I/O filters (external): deflate(zlib)
+                            MPE: no
+                     Direct VFD: no
+                        dmalloc: no
+ Packages w/ extra debug output: none
+                    API tracing: no
+           Using memory checker: no
+Memory allocation sanity checks: no
+            Metadata trace file: no
+         Function stack tracing: no
+      Strict file format checks: no
+   Optimization instrumentation: no
+Bye...
+/shared/apps/slurm/var/spool/node232/job56759921/slurm_script: line 95: 4104364 Aborted                 cdo -enlarge,$irrigation_amount_file $process_dir/temp_renamed_${croptype}.nc $process_dir/temp_enlarged_${croptype}.nc
+cdo settaxis: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_enlarged_maize.nc<
+No such file or directory
+cdo selname: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_timeaxis_maize.nc<
+No such file or directory
+cdo setmissval: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_selected_maize.nc<
+No such file or directory
+cdo merge: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_aligned_*.nc<
+No such file or directory
+cdo enssum: Open failed on >/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/temp_aligned_*.nc<
+No such file or directory
+ncrename: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/total_demand.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncrename: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncatted: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/total_demand.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncatted: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+ncks: ERROR file /lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/total_demand.nc not found. It does not exist on the local filesystem, nor does it match remote filename patterns (e.g., http://foo or foo.bar.edu:file), nor did NCO detect a remote High Performance Storage System (HPSS) accessible via the 'hsi' command.
+ncks: HINT file-not-found errors usually arise from filename typos, incorrect paths, missing files, or capricious gods. Please verify spelling and location of requested file.
+mv: cannot stat '/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/all_crops_demand.nc': No such file or directory
+cdo div: Started child process "selname,mainrice_Demand /lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy/Yangtze_Irrigation_Dis.nc (pipe1.1)".
+cdo div: Started child process "selname,Total_Demand /lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy/Yangtze_Irrigation_Dis.nc (pipe1.2)".
+cdo(2) selname: Processed 266340 values from 11 variables over 193 timesteps [0.08s]
+cdo(3) selname: Processed 266340 values from 11 variables over 193 timesteps [0.08s]
+cdo div: Processed 532680 values from 2 variables over 386 timesteps [0.08s 40MB]
+cdo div: Started child process "selname,secondrice_Demand /lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy/Yangtze_Irrigation_Dis.nc (pipe1.1)".
+cdo div: Started child process "selname,Total_Demand /lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy/Yangtze_Irrigation_Dis.nc (pipe1.2)".
+cdo(2) selname: Processed 266340 values from 11 variables over 193 timesteps [0.07s]
+cdo(3) selname: Processed 266340 values from 11 variables over 193 timesteps [0.07s]
+cdo div: Processed 532680 values from 2 variables over 386 timesteps [0.07s 40MB]
+cdo div: Started child process "selname,winterwheat_Demand /lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy/Yangtze_Irrigation_Dis.nc (pipe1.1)".
+cdo div: Started child process "selname,Total_Demand /lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy/Yangtze_Irrigation_Dis.nc (pipe1.2)".
+cdo(2) selname: Processed 266340 values from 11 variables over 193 timesteps [0.07s]
+cdo(3) selname: Processed 266340 values from 11 variables over 193 timesteps [0.07s]
+cdo div: Processed 532680 values from 2 variables over 386 timesteps [0.07s 41MB]
+cdo div: Started child process "selname,soybean_Demand /lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy/Yangtze_Irrigation_Dis.nc (pipe1.1)".
+cdo div: Started child process "selname,Total_Demand /lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy/Yangtze_Irrigation_Dis.nc (pipe1.2)".
+cdo(2) selname: Processed 266340 values from 11 variables over 193 timesteps [0.07s]
+cdo(3) selname: Processed 266340 values from 11 variables over 193 timesteps [0.07s]
+cdo div: Processed 532680 values from 2 variables over 386 timesteps [0.07s 41MB]
+cdo div: Started child process "selname,maize_Demand /lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy/Yangtze_Irrigation_Dis.nc (pipe1.1)".
+cdo div: Started child process "selname,Total_Demand /lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy/Yangtze_Irrigation_Dis.nc (pipe1.2)".
+cdo(2) selname: Processed 266340 values from 11 variables over 193 timesteps [0.07s]
+cdo(3) selname: Processed 266340 values from 11 variables over 193 timesteps [0.07s]
+cdo div: Processed 532680 values from 2 variables over 386 timesteps [0.07s 41MB]
