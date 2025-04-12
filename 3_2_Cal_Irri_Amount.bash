@@ -15,7 +15,6 @@
 module load cdo
 module load nco
 module load python/3.12.0
-conda install cftime
 
 # Input directory
 Irrigation_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy"
@@ -96,36 +95,42 @@ Merge_Demand(){
         irrigation_amount_file=${Irrigation_dir}/${studyarea}_maincrop_IrrAmount.nc
 
         # Add the missing month as the crops are not planted in every month of each year
-        # python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/3_2_2_Fill_missing_month.py
+        python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/3_2_2_Fill_missing_month.py
 
         # Replace the missing value of individual crop demand with 0
         for croptype in "${CropTypes[@]}"; 
         do
-            file="temp_aligned_${croptype}.nc"
-            tmpfile="temp_aligned_tmp_${croptype}.nc"
-            outfile="temp_aligned_filled_${croptype}.nc"
+            file=$process_dir/temp_aligned_${croptype}.nc
+            tmpfile=$process_dir/temp_aligned_tmp_${croptype}.nc
+            outfile=$process_dir/temp_aligned_filled_${croptype}.nc
 
-            cdo setmissval,-9999 $file $tmpfile # Step 1: Set the missing value to a known one (-9999)
+            cdo -L -setmissval,-9999 "$file" "$tmpfile" # Step 1: Set the missing value to a known one (-9999)
             cdo -expr,"${croptype}_Demand=(${croptype}_Demand==-9999) ? 0 : ${croptype}_Demand" "$tmpfile" "$outfile"
 
-            # Optional: remove temporary file
             rm "$tmpfile"
+            if [ "$croptype" = "${CropTypes[0]}" ]; then
+                cp "$outfile" $process_dir/all_crops_demand.nc
+            else
+                # For subsequent crops, append to the file
+                ncks -A -v ${croptype}_Demand "$outfile" $process_dir/all_crops_demand.nc
+            fi
         done
 
         # Sum up the total demand 
         cdo enssum $process_dir/temp_aligned_filled*.nc $process_dir/total_demand.nc
-        ncrename -v mainrice_Demand,Total_Demand $process_dir/total_demand.nc
+        ncrename -v ${CropTypes[0]}_Demand,Total_Demand $process_dir/total_demand.nc
         ncatted -a units,Total_Demand,c,c,"m3" -a long_name,Total_Demand,c,c,"Total monthly irrigation water demand for all crops" $process_dir/total_demand.nc
-        cdo -expr,'Total_Demand=(Total_Demand==0) ? 1.0/0.0 : Total_Demand' \
-            $process_dir/total_demand.nc $process_dir/total_demand_nan.nc     
+        cdo -L -expr,'Total_Demand=(Total_Demand==-9999) ? 1.0/0.0 : Total_Demand' \
+            -copy $process_dir/total_demand.nc \
+            $process_dir/total_demand_nan.nc
         # Merge the total with the individual demands
-        ncks -A $process_dir/total_demand_nan.nc $process_dir/all_crops_demand.nc
+        ncks -A -v Total_Demand $process_dir/total_demand_nan.nc $process_dir/all_crops_demand.nc
         
         echo "Created combined demand file for $studyarea: $process_dir/all_crops_demand.nc"
 
     done
 }
-Merge_Demand
+# Merge_Demand
 
 
 # Step 3: Calculate the proportion of irrigation water goes to each main crop type
@@ -133,7 +138,7 @@ Get_Irrigation_Prop(){
     for croptype in "${CropTypes[@]}"; 
     do
         # Create fraction of total demand for each crop
-        cdo -O div -selname,${croptype}_Demand $output_file -selname,Total_Demand $output_file $process_dir/temp_${croptype}_proportion.nc
+        cdo -O div -selname,${croptype}_Demand $process_dir/all_crops_demand.nc -selname,Total_Demand $process_dir/all_crops_demand.nc $process_dir/temp_${croptype}_proportion.nc
         
         # Rename the variable to indicate it's a proportion
         ncrename -v ${croptype}_Demand,${croptype}_Proportion $process_dir/temp_${croptype}_proportion.nc
@@ -142,10 +147,14 @@ Get_Irrigation_Prop(){
         ncatted -a units,${croptype}_Proportion,c,c,"fraction" -a long_name,${croptype}_Proportion,c,c,"Proportion of total irrigation demand for ${croptype}" $process_dir/temp_${croptype}_proportion.nc
         
         # Add this variable to the output file
-        ncks -A $process_dir/temp_${croptype}_proportion.nc $output_file
+        ncks -A $process_dir/temp_${croptype}_proportion.nc $process_dir/all_crops_demand.nc
         
-        # Clean up
-        rm $process_dir/temp_${croptype}_proportion.nc
     done
 }
 # Get_Irrigation_Prop
+
+# Clean up
+CleanUp(){
+    rm $process_dir/temp_${croptype}_proportion.nc
+}
+# CleanUp
