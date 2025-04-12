@@ -10,7 +10,9 @@
 #SBATCH --mem=250000
 
 # This code is used to: 
-# 1. calculate the demand of each crop = Irrigated harvested area (m2) * Monthly deficit (mm)
+# 1. Calculate the demand of each crop = Irrigated harvested area (m2) * Monthly deficit (mm)
+# 2. Extend the time dimension to match the irrigation data, as each crop is not planted in every month of a year
+# 3. Get the monthly irrigation proportion [0-1] for each crop
 
 module load cdo
 module load nco
@@ -109,10 +111,10 @@ Merge_Demand(){
 
             rm "$tmpfile"
             if [ "$croptype" = "${CropTypes[0]}" ]; then
-                cp "$outfile" $process_dir/all_crops_demand.nc
+                cp "$outfile" $process_dir/${studyarea}_all_crops_demand.nc
             else
                 # For subsequent crops, append to the file
-                ncks -A -v ${croptype}_Demand "$outfile" $process_dir/all_crops_demand.nc
+                ncks -A -v ${croptype}_Demand "$outfile" $process_dir/${studyarea}_all_crops_demand.nc
             fi
         done
 
@@ -124,9 +126,9 @@ Merge_Demand(){
             -copy $process_dir/total_demand.nc \
             $process_dir/total_demand_nan.nc
         # Merge the total with the individual demands
-        ncks -A -v Total_Demand $process_dir/total_demand_nan.nc $process_dir/all_crops_demand.nc
+        ncks -A -v Total_Demand $process_dir/total_demand_nan.nc $process_dir/${studyarea}_all_crops_demand.nc
         
-        echo "Created combined demand file for $studyarea: $process_dir/all_crops_demand.nc"
+        echo "Created combined demand file for $studyarea"
 
     done
 }
@@ -135,20 +137,23 @@ Merge_Demand(){
 
 # Step 3: Calculate the proportion of irrigation water goes to each main crop type
 Get_Irrigation_Prop(){
-    for croptype in "${CropTypes[@]}"; 
-    do
-        # Create fraction of total demand for each crop
-        cdo -O div -selname,${croptype}_Demand $process_dir/all_crops_demand.nc -selname,Total_Demand $process_dir/all_crops_demand.nc $process_dir/temp_${croptype}_proportion.nc
-        
-        # Rename the variable to indicate it's a proportion
-        ncrename -v ${croptype}_Demand,${croptype}_Proportion $process_dir/temp_${croptype}_proportion.nc
-        
-        # Add metadata
-        ncatted -a units,${croptype}_Proportion,c,c,"fraction" -a long_name,${croptype}_Proportion,c,c,"Proportion of total irrigation demand for ${croptype}" $process_dir/temp_${croptype}_proportion.nc
-        
-        # Add this variable to the output file
-        ncks -A $process_dir/temp_${croptype}_proportion.nc $process_dir/all_crops_demand.nc
-        
+    for studyarea in "${StudyAreas[@]}"; 
+    do  
+        for croptype in "${CropTypes[@]}"; 
+        do
+            # Create fraction of total demand for each crop
+            cdo -O div -selname,${croptype}_Demand $process_dir/${studyarea}_all_crops_demand.nc -selname,Total_Demand $process_dir/${studyarea}_all_crops_demand.nc $process_dir/temp_${croptype}_proportion.nc
+            
+            # Rename the variable to indicate it's a proportion
+            ncrename -v ${croptype}_Demand,${croptype}_Proportion $process_dir/temp_${croptype}_proportion.nc
+            
+            # Add metadata
+            ncatted -a units,${croptype}_Proportion,c,c,"fraction" -a long_name,${croptype}_Proportion,c,c,"Proportion of total irrigation demand for ${croptype}" $process_dir/temp_${croptype}_proportion.nc
+            
+            # Add this variable to the output file
+            ncks -A $process_dir/temp_${croptype}_proportion.nc $process_dir/${studyarea}_all_crops_demand.nc
+            
+        done
     done
 }
 # Get_Irrigation_Prop
