@@ -14,7 +14,8 @@
 
 module load cdo
 module load nco
-module load netcdf
+module load python/3.12.0
+conda install cftime
 
 # Input directory
 Irrigation_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy"
@@ -67,7 +68,9 @@ Cal_Monthly_Irri_Demand(){
             sed 's/T/ /g' $process_dir/${croptype}_timestamps.txt > $process_dir/cleaned_${croptype}_timestamps.txt
             sed 's/^[ \t]*//;s/[ \t]*$//' $process_dir/cleaned_${croptype}_timestamps.txt > $process_dir/cleaned_${croptype}_timestamps_cleaned.txt
             sed -i 's/[[:space:]]*$//' $process_dir/cleaned_${croptype}_timestamps_cleaned.txt
-            cdo settime,$process_dir/cleaned_${croptype}_timestamps_cleaned.txt $process_dir/temp_${croptype}_Irri_HA_timesteps.nc $process_dir/temp_${croptype}_Irri_HA_timed.nc
+            # Convert multiple spaces to newlines
+            cat $process_dir/cleaned_${croptype}_timestamps_cleaned.txt | tr -s ' ' '\n' | grep -v '^$' > $process_dir/cleaned_${croptype}_timestamps_seperated.txt
+            cat $process_dir/cleaned_${croptype}_timestamps_seperated.txt | cdo -setdate,- $process_dir/temp_${croptype}_Irri_HA_timesteps.nc $process_dir/temp_${croptype}_Irri_HA_timed.nc
 
             # Expand the spatial range of the deficit file 
             cdo griddes $process_dir/temp_${croptype}_Irri_HA_timed.nc > $process_dir/target_grid.txt
@@ -83,36 +86,42 @@ Cal_Monthly_Irri_Demand(){
     done
 }
 
-Cal_Monthly_Irri_Demand
+# Cal_Monthly_Irri_Demand
 
 # Step 2: Align the time dimesion of the irrigation demands of each crop, and merge the total demand 
 Merge_Demand(){
-    
+    export HDF5_DISABLE_VERSION_CHECK=1    
     for studyarea in "${StudyAreas[@]}"; 
     do  
         irrigation_amount_file=${Irrigation_dir}/${studyarea}_maincrop_IrrAmount.nc
-        reference_file=$irrigation_amount_file # Use the time dimension of the irrigation file (VIC-WUR) as the reference file
+
+        # Add the missing month as the crops are not planted in every month of each year
+        # python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/3_2_2_Fill_missing_month.py
+
+        # Replace the missing value of individual crop demand with 0
         for croptype in "${CropTypes[@]}"; 
         do
-           cdo -enlarge,$irrigation_amount_file $process_dir/temp_renamed_${croptype}.nc $process_dir/temp_enlarged_${croptype}.nc
-           cdo -settaxis,1985-01-01,00:00,1mon $process_dir/temp_enlarged_${croptype}.nc $process_dir/temp_timeaxis_${croptype}.nc
-           cdo -selname,${croptype}_Demand $process_dir/temp_timeaxis_${croptype}.nc $process_dir/temp_selected_${croptype}.nc
-           cdo -setmissval,0 $process_dir/temp_selected_${croptype}.nc $process_dir/temp_aligned_${croptype}.nc
+            file="temp_aligned_${croptype}.nc"
+            tmpfile="temp_aligned_tmp_${croptype}.nc"
+            outfile="temp_aligned_filled_${croptype}.nc"
+
+            cdo setmissval,-9999 $file $tmpfile # Step 1: Set the missing value to a known one (-9999)
+            cdo -expr,"${croptype}_Demand=(${croptype}_Demand==-9999) ? 0 : ${croptype}_Demand" "$tmpfile" "$outfile"
+
+            # Optional: remove temporary file
+            rm "$tmpfile"
         done
 
-        cdo merge $process_dir/temp_aligned_*.nc $process_dir/all_crops_demand.nc
-        cdo enssum $process_dir/temp_aligned_*.nc $process_dir/total_demand.nc
+        # Sum up the total demand 
+        cdo enssum $process_dir/temp_aligned_filled*.nc $process_dir/total_demand.nc
         ncrename -v mainrice_Demand,Total_Demand $process_dir/total_demand.nc
         ncatted -a units,Total_Demand,c,c,"m3" -a long_name,Total_Demand,c,c,"Total monthly irrigation water demand for all crops" $process_dir/total_demand.nc
-        
+        cdo -expr,'Total_Demand=(Total_Demand==0) ? 1.0/0.0 : Total_Demand' \
+            $process_dir/total_demand.nc $process_dir/total_demand_nan.nc     
         # Merge the total with the individual demands
-        ncks -A $process_dir/total_demand.nc $process_dir/all_crops_demand.nc
+        ncks -A $process_dir/total_demand_nan.nc $process_dir/all_crops_demand.nc
         
-        mv $process_dir/all_crops_demand.nc $output_file
-        
-        # Clean up remaining temporary files
-        # rm -f $process_dir/temp_renamed_*.nc $process_dir/total_demand.nc
-        echo "Created combined demand file for $studyarea: $output_file"
+        echo "Created combined demand file for $studyarea: $process_dir/all_crops_demand.nc"
 
     done
 }
@@ -139,4 +148,4 @@ Get_Irrigation_Prop(){
         rm $process_dir/temp_${croptype}_proportion.nc
     done
 }
-Get_Irrigation_Prop
+# Get_Irrigation_Prop
