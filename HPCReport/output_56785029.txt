@@ -1,5 +1,0 @@
-Irrigation for mainrice for Yangtze is calculated and saved
-Irrigation for secondrice for Yangtze is calculated and saved
-Irrigation for winterwheat for Yangtze is calculated and saved
-Irrigation for soybean for Yangtze is calculated and saved
-Irrigation for maize for Yangtze is calculated and saved

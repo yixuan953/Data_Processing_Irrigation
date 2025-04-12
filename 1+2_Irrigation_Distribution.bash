@@ -18,7 +18,7 @@
 # 1-2: Calculate the fraction of main crop 
 # python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/1_2_Cal_Frac.py
 
-# Step 2: Calculate the amount total irrigation water goes to the main crops
+# Step 2: Calculate the amount total irrigation water goes to the main crops [m3]
 module load cdo
 IRRIG_FILE="/lustre/nobackup/WUR/ESG/zhou111/Data/Raw/Irrigation/VIC_Bram/irrigationWithdrawal_monthly_1979_2016.nc"
 FRAC_FILE="/lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/MainCrop_Fraction_05d.nc"
