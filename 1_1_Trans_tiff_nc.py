@@ -1,3 +1,4 @@
+# This code is used to transform irrigated harvest area data from .tif format to .nc
 import os
 import numpy as np
 import rasterio

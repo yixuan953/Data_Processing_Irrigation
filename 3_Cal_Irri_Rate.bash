@@ -55,7 +55,7 @@ GetIrriAmount(){
 
 }
 
-# GetIrriAmount
+GetIrriAmount
 
 GetIrriRate(){
     for studyarea in "${StudyAreas[@]}"; 

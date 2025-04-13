@@ -43,13 +43,13 @@ Cut_HA(){
 
         # Step 2: Cut using the bounding box
         # Here I am not using cdo as the irrigated_ha .nc file is identified as generic (probably because it was transformed from .tif file)
-        # cdo sellonlatbox,$lon_min,$lon_max,$lat_min,$lat_max $irrigated_ha ${process_dir}/${StudyArea}_Irrigated_HA.nc
+        cdo sellonlatbox,$lon_min,$lon_max,$lat_min,$lat_max $irrigated_ha ${process_dir}/${StudyArea}_Irrigated_HA.nc
         ncks -d lon,$lon_min,$lon_max -d lat,$lat_min,$lat_max $irrigated_ha ${process_dir}/${StudyArea}_Irrigated_HA.nc
         cdo sellonlatbox,$lon_min,$lon_max,$lat_min,$lat_max $irrigation_amount ${process_dir}/${StudyArea}_maincrop_IrrAmount.nc
     done      
 }
 
-# Cut_HA
+Cut_HA
 
 # Step 2: Divide irrigated area of rice into two if second rice is planted
 irrigated_file="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy/Yangtze_Irrigated_HA.nc"
@@ -61,7 +61,7 @@ Divede_HA(){
     cdo -O ifthen -selname,Yp $secondrice_mask -selname,RICE_Irrigated_Area $irrigated_file ${temp_file}_secondrice_mask.nc
 
     # Calculate SECONDRICE_Irrigated_Area (half of RICE_Irrigated_Area where masked)
-    cdo -O mulc,0.5 ${temp_file}_secondrice_mask.nc ${temp_file}_secondrice_area.nc
+    cdo -O setmisstoc,0 -mulc,0.5 ${temp_file}_secondrice_mask.nc ${temp_file}_secondrice_area.nc
 
     # Calculate MAINRICE_Irrigated_Area (RICE_Irrigated_Area - SECONDRICE_Irrigated_Area)
     cdo -O setmisstoc,0 ${temp_file}_secondrice_area.nc ${temp_file}_secondrice_area_nomissing.nc

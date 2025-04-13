@@ -10,32 +10,27 @@
 #SBATCH --mem=250000
 
 #--------------------Environment, Operations and Job steps-------------
-# module load python/3.12.0
-
-# Step 1: Calculate how much irrigation water (fraction) would go to main crop
-# 1-1: Transform the data from tiff format to nc (SPAM2005)
-# python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/1_1_Trans_tiff_nc.py
-# 1-2: Calculate the fraction of main crop 
-# python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/1_2_Cal_Frac.py
-
-# Step 2: Calculate the amount total irrigation water goes to the main crops [m3]
+module load python/3.12.0
 module load cdo
 IRRIG_FILE="/lustre/nobackup/WUR/ESG/zhou111/Data/Raw/Irrigation/VIC_Bram/irrigationWithdrawal_monthly_1979_2016.nc"
 FRAC_FILE="/lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/MainCrop_Fraction_05d.nc"
 process_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation"
 output_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation"
 
-# 2-1: Sum up the total irrigation amount from all sectors (e.g., groundwater, reservoir, etc.) # Unit: [mm]
-Sum_Irri(){
-    echo "Summing all irrigation withdrawal sectors..."
-    cdo -O enssum -select,name=OUT_WI_COMP_SECT,OUT_WI_DAM_SECT,OUT_WI_GW_SECT,OUT_WI_NREN_SECT,OUT_WI_REM_SECT,OUT_WI_SURF_SECT $IRRIG_FILE $process_dir/total_irrigation_tmp.nc
-    cdo -O chname,OUT_WI_COMP_SECT,TOTAL_IRRIGATION $process_dir/total_irrigation_tmp.nc $process_dir/total_irrigation.nc
-    rm $process_dir/total_irrigation_tmp.nc
-}
+# This code is to: 
+# 1) Calculate how much irrigation water (fraction) would go to main crop
+# 2) Calculate how much irrigation water (amount, m3) would go to main crop
 
-# Sum_Irri
+# 1-1: Transform the data from tiff format to nc (SPAM2005)
+python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/1_1_Trans_tiff_nc.py
 
-# 2-2: Match the grid of two .nc files if needed(total irrigation amount & fraction goes to main crop)
+# 1-2: Calculate the fraction of main crop 
+python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/1_2_Cal_Frac.py
+
+# 1-3: Sum up the total irrigation amount from all sectors (e.g., groundwater, reservoir, etc.) # Unit: [mm]
+python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/1_3_Sum_Irri_Sec.py
+
+# 1-4: Match the grid of two .nc files if needed(total irrigation amount & fraction goes to main crop)
 Grid_Match(){
     echo "Checking grid definitions..."
     IRRIG_GRID=$(cdo griddes $process_dir/total_irrigation.nc)
@@ -58,17 +53,18 @@ Grid_Match(){
     fi
 }
 
-# Grid_Match
+Grid_Match
 
-# 2-3 Multiply total irrigation by main crop fraction
+# 1_4 Calculate the amount total irrigation water goes to the main crops [m3]
 Get_Irri_MainCrop(){
     echo "Calculating irrigation for main crops..."
     cdo selvar,Frac_MainCrop $output_dir/MainCrop_Fraction_05d.nc $process_dir/frac_maincrop.nc # Unit [-]
-    cdo selvar,TOTAL_IRRIGATION $output_dir/total_irrigation.nc $process_dir/total_irrigation_only.nc # Unit []
+    cdo -setrtoc,0.0,0.0,9.96921e+36 -setmissval,9.96921e+36 $process_dir/frac_maincrop.nc $process_dir/frac_MainCrop_nan.nc
+    cdo selvar,TOTAL_IRRIGATION $process_dir/total_irrigation.nc $process_dir/total_irrigation_only.nc # Unit []
     cdo invertlat $process_dir/total_irrigation_only.nc $process_dir/total_irrigation_only_latinvert.nc
     cdo selvar,area /lustre/nobackup/WUR/ESG/zhou111/Data/Raw/General/pixel_area_m2_05d.nc $process_dir/pixel_area_05d.nc
     cdo invertlat $process_dir/pixel_area_05d.nc $process_dir/pixel_area_05d_latinvert.nc
-    cdo merge $process_dir/total_irrigation_only_latinvert.nc $process_dir/frac_maincrop.nc $process_dir/pixel_area_05d_latinvert.nc $process_dir/merged_input.nc
+    cdo merge $process_dir/total_irrigation_only_latinvert.nc $process_dir/frac_MainCrop_nan.nc $process_dir/pixel_area_05d_latinvert.nc $process_dir/merged_input.nc
     cdo -L -expr,'MAIN_CROP_IRRIGATION=TOTAL_IRRIGATION*Frac_MainCrop*area/1000' \
         -merge $process_dir/merged_input.nc \
         $output_dir/maincrop_irrigation.nc

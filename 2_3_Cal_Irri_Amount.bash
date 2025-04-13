@@ -74,7 +74,7 @@ Cal_Monthly_Irri_Demand(){
             cat $process_dir/cleaned_${croptype}_timestamps_seperated.txt | cdo -setdate,- $process_dir/temp_${croptype}_Irri_HA_timesteps.nc $process_dir/temp_${croptype}_Irri_HA_timed.nc
 
             # Expand the spatial range of the deficit file 
-            cdo griddes $process_dir/temp_${croptype}_Irri_HA_timed.nc > $process_dir/target_grid.txt
+            # cdo griddes $process_dir/temp_${croptype}_Irri_HA_timed.nc > $process_dir/target_grid.txt
             cdo remapnn,$process_dir/target_grid.txt $deficit_file $process_dir/temp_${croptype}_deficit_expanded.nc # The time dimension only contains the growing month
 
             # Get the demand of each crop        
@@ -87,7 +87,7 @@ Cal_Monthly_Irri_Demand(){
     done
 }
 
-# Cal_Monthly_Irri_Demand
+Cal_Monthly_Irri_Demand
 
 # Step 2: Align the time dimesion of the irrigation demands of each crop, and merge the total demand 
 Merge_Demand(){
@@ -97,7 +97,7 @@ Merge_Demand(){
         irrigation_amount_file=${Irrigation_dir}/${studyarea}_maincrop_IrrAmount.nc
 
         # Add the missing month as the crops are not planted in every month of each year
-        python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/3_2_2_Fill_missing_month.py
+        python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/2_2_Fill_missing_month.py
 
         # Replace the missing value of individual crop demand with 0
         for croptype in "${CropTypes[@]}"; 
@@ -132,7 +132,7 @@ Merge_Demand(){
 
     done
 }
-# Merge_Demand
+Merge_Demand
 
 
 # Step 3: Calculate the proportion of irrigation water goes to each main crop type
@@ -156,7 +156,7 @@ Get_Irrigation_Prop(){
         done
     done
 }
-# Get_Irrigation_Prop
+Get_Irrigation_Prop
 
 # Clean up
 CleanUp(){
