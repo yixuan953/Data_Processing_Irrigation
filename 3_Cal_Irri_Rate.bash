@@ -28,15 +28,11 @@ GetIrriAmount(){
     for studyarea in "${StudyAreas[@]}"; 
     do 
 
-    # Read the irrigation amount and remove the wu_class variable
-    irrigation_amount_original=${input_dir}/${studyarea}_maincrop_IrrAmount.nc
+    # Read the total irrigation amount for main crops and remove the wu_class variable
+    irrigation_amount_original=${process_dir}/${studyarea}_maincrop_IrrAmount.nc
     ncks -d wu_class,0 $irrigation_amount_original $process_dir/temp_${studyarea}_maincrop_IrrAmount_MoveWUC.nc
     ncwa -a wu_class $process_dir/temp_${studyarea}_maincrop_IrrAmount_MoveWUC.nc $process_dir/${studyarea}_maincrop_IrrAmount_clean.nc
-    
     Irri_Amount_File=$process_dir/${studyarea}_maincrop_IrrAmount_clean.nc
-    
-    # Select the irrigation d
-    # cdo selvar,MAIN_CROP_IRRIGATION $Irri_Amount_File $process_dir/temp_${studyarea}_sel_Irri_amount.nc
 
     # Read the irrigation distribution proportion for individual main crops
     Irri_Pro_File=$process_dir/${studyarea}_all_crops_demand.nc

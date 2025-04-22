@@ -42,9 +42,9 @@ Cut_HA(){
         echo "Bounding box: lon=($lon_min, $lon_max), lat=($lat_min, $lat_max)"
 
         # Step 2: Cut using the bounding box
-        # Here I am not using cdo as the irrigated_ha .nc file is identified as generic (probably because it was transformed from .tif file)
-        cdo sellonlatbox,$lon_min,$lon_max,$lat_min,$lat_max $irrigated_ha ${process_dir}/${StudyArea}_Irrigated_HA.nc
-        ncks -d lon,$lon_min,$lon_max -d lat,$lat_min,$lat_max $irrigated_ha ${process_dir}/${StudyArea}_Irrigated_HA.nc
+        # Here I am not using cdo as the irrigated_ha.nc file is identified as generic (probably because it was transformed from .tif file)
+        # cdo sellonlatbox,$lon_min,$lon_max,$lat_min,$lat_max $irrigated_ha ${process_dir}/${StudyArea}_Irrigated_HA.nc
+        # ncks -d lon,$lon_min,$lon_max -d lat,$lat_min,$lat_max $irrigated_ha ${process_dir}/${StudyArea}_Irrigated_HA.nc
         cdo sellonlatbox,$lon_min,$lon_max,$lat_min,$lat_max $irrigation_amount ${process_dir}/${StudyArea}_maincrop_IrrAmount.nc
     done      
 }
@@ -83,4 +83,4 @@ Divede_HA(){
 
     echo "Processing complete. New variables added to $irrigated_file"
 }
-Divede_HA
+# Divede_HA
