@@ -14,8 +14,7 @@ The distribution methods are as follows:
     Here, we:
     Firstly sum up the irrigation amount from all sectors (groundwater, surface water, dam, etc.) # Unit: mm
          [OUT_WI_COMP_SECT,OUT_WI_DAM_SECT,OUT_WI_GW_SECT,OUT_WI_NREN_SECT,OUT_WI_REM_SECT,OUT_WI_SURF_SECT]
-         * Pls be noticed that here the mm is calculated using the total irrigation amount/pixel area
-    Then calculate the monthly irrigation amount goes to main crops = Frac_MainCrop * Monthly irrigation (mm) * pixel_area (m2)/1000 (unit transform)
+    Then calculate the monthly irrigation amount goes to main crops [m3] = Frac_MainCrop * Monthly irrigation (mm) * irrigated harvest area (ha) * 10 (unit transform)
 
 2 - Calculate how to distribut the irrigation water amount for all maincrops to individual crop types
     2-1: Calculate the daily "deficit" of each crop, and aggregate the "deficit" to monthly scale
@@ -28,4 +27,4 @@ The distribution methods are as follows:
 3 - Calculate the monthly irrigation amount (m3) and irrigation rate (mm - for irrgation area) for each crop type
     Here:
     3-1: Irrigation amount given to each individual crop type = Total irrigation amount for main crops (m3) * Proportion (calculated in step2)
-    3-2: Irrigation rate (mm) = Total amount given to each individual crop type/Irrigated harvest area
+    3-2: Irrigation rate (mm) = 0.1 * Total amount given to each individual crop type (m3)  /Irrigated harvest area (ha)

@@ -51,7 +51,7 @@ GetIrriAmount(){
 
 }
 
-GetIrriAmount
+# GetIrriAmount
 
 GetIrriRate(){
     for studyarea in "${StudyAreas[@]}"; 
@@ -80,11 +80,11 @@ GetIrriRate(){
             # ---------------------------------------------------------
 
             # ----------- Calculate the irrigation rate [mm] ----------
-            # Irrigation rate [mm] = (Irrigation amount [m3] / Irrigated harvest area [ha]) * 10
+            # Irrigation rate [mm] = (Irrigation amount [m3] / Irrigated harvest area [ha]) * 0.1
             
             Irri_Amount=$output_dir/${studyarea}_${croptype}_monthly_Irri_Amount.nc
             cdo -O duplicate,$(cdo ntime $Irri_Amount) $process_dir/${studyarea}_${croptype}_Irrigated_HA.nc $process_dir/temp_${studyarea}_${croptype}_Irrigated_HA_bc.nc
-            cdo mulc,10 -div $Irri_Amount -setgrid,$Irri_Amount $process_dir/temp_${studyarea}_${croptype}_Irrigated_HA_bc.nc $process_dir/temp_${studyarea}_${croptype}_Irrigated_Rate.nc
+            cdo mulc,0.1 -div $Irri_Amount -setgrid,$Irri_Amount $process_dir/temp_${studyarea}_${croptype}_Irrigated_HA_bc.nc $process_dir/temp_${studyarea}_${croptype}_Irrigated_Rate.nc
             cdo -setmissval,0 $process_dir/temp_${studyarea}_${croptype}_Irrigated_Rate.nc $process_dir/temp_${studyarea}_${croptype}_IrriRate_clean.nc
             # ---------------------------------------------------------
 
