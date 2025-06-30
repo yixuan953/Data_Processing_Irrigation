@@ -56,7 +56,7 @@ irrigated_file="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseS
 secondrice_mask="/lustre/nobackup/WUR/ESG/zhou111/Model_Results/1_Yp_WOFOST/Yangtze/Yangtze_secondrice_Yp_mask.nc"
 temp_file="${process_dir}/temp_rice_calc"
 
-Divede_HA(){ 
+Divide_HA(){ 
 
     cdo -O ifthen -selname,Yp $secondrice_mask -selname,RICE_Irrigated_Area $irrigated_file ${temp_file}_secondrice_mask.nc
 
@@ -83,4 +83,4 @@ Divede_HA(){
 
     echo "Processing complete. New variables added to $irrigated_file"
 }
-# Divede_HA
+# Divide_HA

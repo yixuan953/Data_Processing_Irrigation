@@ -20,8 +20,8 @@ input_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy"
 process_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy"
 output_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy"
 
-StudyAreas=("Yangtze") # "Rhine" "Yangtze" "LaPlata" "Indus"
-CropTypes=('mainrice' 'secondrice' 'winterwheat' 'soybean' 'maize') # 'mainrice' 'secondrice' 'springwheat' 'winterwheat' 'soybean' 'maize'
+StudyAreas=("LaPlata") # "Rhine" "Yangtze" "LaPlata" "Indus"
+CropTypes=('mainrice' 'maize' 'soybean' 'winterwheat') # 'mainrice' 'maize' 'secondrice' 'soybean' 'springwheat' 'winterwheat'
 
 
 GetIrriAmount(){
@@ -51,7 +51,7 @@ GetIrriAmount(){
 
 }
 
-# GetIrriAmount
+GetIrriAmount
 
 GetIrriRate(){
     for studyarea in "${StudyAreas[@]}"; 
@@ -62,7 +62,7 @@ GetIrriRate(){
         do 
             # -----  Extract the correcponding irrigated harvest area --------
             if [ "$croptype" == "mainrice" ]; then
-                var_name="MAINRICE_Irrigated_Area"
+                var_name="RICE_Irrigated_Area" # MAINRICE_Irrigated_Area for Yangtze
             fi
             if [ "$croptype" == "secondrice" ]; then
                var_name="SECONDRICE_Irrigated_Area"

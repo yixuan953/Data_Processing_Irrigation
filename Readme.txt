@@ -1,6 +1,7 @@
 The scripts of this folder are used to distribute the monthly irrigation amount (1980 - 2016) from Droppers et al. (2020): https://doi.org/10.5194/gmd-13-5029-2020 to main crop types
 The distribution methods are as follows:
 
+At global scale:
 1 - Calculate how much irrigation water (fraction - [0,1], amount [m3]) will go to the main crops (maize, rice, wheat, soybean):
     1-1 Fraction calculation
     Frac_MainCrop = (Havest area * Irrigated proportion)_MainCrop/(Havest area * Irrigated proportion)_AllCrop
@@ -16,6 +17,7 @@ The distribution methods are as follows:
          [OUT_WI_COMP_SECT,OUT_WI_DAM_SECT,OUT_WI_GW_SECT,OUT_WI_NREN_SECT,OUT_WI_REM_SECT,OUT_WI_SURF_SECT]
     Then calculate the monthly irrigation amount goes to main crops [m3] = Frac_MainCrop * Monthly irrigation (mm) * irrigated harvest area (ha) * 10 (unit transform)
 
+For each case study area:
 2 - Calculate how to distribut the irrigation water amount for all maincrops to individual crop types
     2-1: Calculate the daily "deficit" of each crop, and aggregate the "deficit" to monthly scale
     Here the "deficit" = Evapotranspiration (withour water limitation) - Precipitation

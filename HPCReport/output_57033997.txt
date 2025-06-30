@@ -1,5 +1,0 @@
-Irrigation rate for mainrice for Yangtze is calculated and saved
-Irrigation rate for secondrice for Yangtze is calculated and saved
-Irrigation rate for winterwheat for Yangtze is calculated and saved
-Irrigation rate for soybean for Yangtze is calculated and saved
-Irrigation rate for maize for Yangtze is calculated and saved

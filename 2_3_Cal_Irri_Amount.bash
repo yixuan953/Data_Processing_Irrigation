@@ -2,8 +2,8 @@
 #-----------------------------Mail address-----------------------------
 
 #-----------------------------Output files-----------------------------
-#SBATCH --output=HPCReport/output_%j.txt
-#SBATCH --error=HPCReport/error_output_%j.txt
+#SBATCH --output=/lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/HPCReport/output_%j.txt
+#SBATCH --error=/lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/HPCReport/error_output_%j.txt
 
 #-----------------------------Required resources-----------------------
 #SBATCH --time=600
@@ -16,19 +16,18 @@
 
 module load cdo
 module load nco
-module load python/3.12.0
+
+StudyAreas=("LaPlata") # "Rhine" "Yangtze" "LaPlata" "Indus"
+CropTypes=('mainrice' 'maize' 'soybean' 'winterwheat') # 'mainrice' 'maize' 'secondrice' 'soybean' 'springwheat' 'winterwheat'
 
 # Input directory
 Irrigation_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy"
-Demand_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/WOFOST_demand"
+Demand_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Hydro"
 # Processed directory
 process_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy"
 # Output directory
 output_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Irrigation/CaseStudy"
-output_file="${output_dir}/Yangtze_Irrigation_Dis.nc"
-
-StudyAreas=("Yangtze") # "Rhine" "Yangtze" "LaPlata" "Indus"
-CropTypes=('mainrice' 'secondrice' 'winterwheat' 'soybean' 'maize') # 'mainrice' 'secondrice' 'springwheat' 'winterwheat' 'soybean' 'maize'
+output_file="${output_dir}/${studyarea}_Irrigation_Dis.nc"
 
 # Part 1: Get the demand of each crop, and save them in seperate .nc files
 Cal_Monthly_Irri_Demand(){
@@ -47,7 +46,7 @@ Cal_Monthly_Irri_Demand(){
 
             # Expand the temporal range of the irrigated_HA file
             if [ "$croptype" == "mainrice" ]; then
-                var_name="MAINRICE_Irrigated_Area"
+                var_name="RICE_Irrigated_Area" # For Yangtze, it should be changed to MAINRICE_Irrigated_Area
             fi
             if [ "$croptype" == "secondrice" ]; then
                var_name="SECONDRICE_Irrigated_Area"
@@ -75,7 +74,7 @@ Cal_Monthly_Irri_Demand(){
 
             # Expand the spatial range of the deficit file 
             # cdo griddes $process_dir/temp_${croptype}_Irri_HA_timed.nc > $process_dir/target_grid.txt
-            cdo remapnn,$process_dir/target_grid.txt $deficit_file $process_dir/temp_${croptype}_deficit_expanded.nc # The time dimension only contains the growing month
+            cdo remapnn,$process_dir/${studyarea}_target_grid.txt $deficit_file $process_dir/temp_${croptype}_deficit_expanded.nc # The time dimension only contains the growing month
 
             # Get the demand of each crop        
             cdo -O mul $process_dir/temp_${croptype}_deficit_expanded.nc $process_dir/temp_${croptype}_Irri_HA_timed.nc $process_dir/result_${croptype}_multiply.nc
@@ -89,15 +88,20 @@ Cal_Monthly_Irri_Demand(){
 
 Cal_Monthly_Irri_Demand
 
+
 # Step 2: Align the time dimesion of the irrigation demands of each crop, and merge the total demand 
 Merge_Demand(){
-    export HDF5_DISABLE_VERSION_CHECK=1    
+    export HDF5_DISABLE_VERSION_CHECK=1
+        
     for studyarea in "${StudyAreas[@]}"; 
     do  
         irrigation_amount_file=${Irrigation_dir}/${studyarea}_maincrop_IrrAmount.nc
 
         # Add the missing month as the crops are not planted in every month of each year
+        source /home/WUR/zhou111/miniconda3/etc/profile.d/conda.sh
+        conda activate myenv
         python /lustre/nobackup/WUR/ESG/zhou111/Code/Data_Processing/Irrigation/2_2_Fill_missing_month.py
+        conda deactivate
 
         # Replace the missing value of individual crop demand with 0
         for croptype in "${CropTypes[@]}"; 
@@ -120,7 +124,7 @@ Merge_Demand(){
 
         # Sum up the total demand 
         cdo enssum $process_dir/temp_aligned_filled*.nc $process_dir/total_demand.nc
-        ncrename -v ${CropTypes[0]}_Demand,Total_Demand $process_dir/total_demand.nc
+        ncrename -v ${croptype[0]}_Demand,Total_Demand $process_dir/total_demand.nc
         ncatted -a units,Total_Demand,c,c,"m3" -a long_name,Total_Demand,c,c,"Total monthly irrigation water demand for all crops" $process_dir/total_demand.nc
         cdo -L -expr,'Total_Demand=(Total_Demand==-9999) ? 1.0/0.0 : Total_Demand' \
             -copy $process_dir/total_demand.nc \
@@ -158,8 +162,3 @@ Get_Irrigation_Prop(){
 }
 Get_Irrigation_Prop
 
-# Clean up
-CleanUp(){
-    rm $process_dir/temp_${croptype}_proportion.nc
-}
-# CleanUp
