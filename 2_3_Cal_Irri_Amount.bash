@@ -17,8 +17,8 @@
 module load cdo
 module load nco
 
-StudyAreas=("LaPlata") # "Rhine" "Yangtze" "LaPlata" "Indus"
-CropTypes=('mainrice' 'maize' 'soybean' 'winterwheat') # 'mainrice' 'maize' 'secondrice' 'soybean' 'springwheat' 'winterwheat'
+StudyAreas=("Yangtze") # "Rhine" "Yangtze" "LaPlata" "Indus"
+CropTypes=('mainrice' 'maize' 'secondrice' 'soybean' 'winterwheat') # 'mainrice' 'maize' 'secondrice' 'soybean' 'springwheat' 'winterwheat'
 
 # Input directory
 Irrigation_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy"
@@ -46,7 +46,7 @@ Cal_Monthly_Irri_Demand(){
 
             # Expand the temporal range of the irrigated_HA file
             if [ "$croptype" == "mainrice" ]; then
-                var_name="RICE_Irrigated_Area" # For Yangtze, it should be changed to MAINRICE_Irrigated_Area
+                var_name="MAINRICE_Irrigated_Area" # For Yangtze, it should be changed to MAINRICE_Irrigated_Area
             fi
             if [ "$croptype" == "secondrice" ]; then
                var_name="SECONDRICE_Irrigated_Area"
@@ -124,7 +124,7 @@ Merge_Demand(){
 
         # Sum up the total demand 
         cdo enssum $process_dir/temp_aligned_filled*.nc $process_dir/total_demand.nc
-        ncrename -v ${croptype[0]}_Demand,Total_Demand $process_dir/total_demand.nc
+        ncrename -v ${CropTypes[0]}_Demand,Total_Demand $process_dir/total_demand.nc 
         ncatted -a units,Total_Demand,c,c,"m3" -a long_name,Total_Demand,c,c,"Total monthly irrigation water demand for all crops" $process_dir/total_demand.nc
         cdo -L -expr,'Total_Demand=(Total_Demand==-9999) ? 1.0/0.0 : Total_Demand' \
             -copy $process_dir/total_demand.nc \

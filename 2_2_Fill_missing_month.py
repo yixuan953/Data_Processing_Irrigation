@@ -5,7 +5,7 @@ import pandas as pd
 
 # === Paths ===
 process_dir = "/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStudy"
-all_crops = ["winterwheat", "maize", "mainrice", "soybean"]
+all_crops = ["winterwheat", "maize", "mainrice", "soybean", "secondrice"]
 complete_times = pd.date_range('1981-01-01', '2016-12-01', freq='MS')
 
 for crop in all_crops:

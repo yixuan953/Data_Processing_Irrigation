@@ -11,15 +11,17 @@ process_dir="/lustre/nobackup/WUR/ESG/zhou111/Data/Processed/Irrigation/CaseStud
 
 # Clean up
 CleanUp(){
-    rm "$process_dir"/temp*.nc
-    rm "$process_dir"/result*.nc
-    rm "$process_dir"/total*.nc
-    rm "$process_dir"/maize*.nc
-    rm "$process_dir"/winterwheat*.nc
-    rm "$process_dir"/springwheat*.nc
-    rm "$process_dir"/mainrice*.nc
-    rm "$process_dir"/secondrice*.nc
-    rm "$process_dir"/soybean*.nc
+    rm $process_dir/cleaned*.txt
+    rm $process_dir/temp*.nc
+    rm $process_dir/result*.nc
+    rm $process_dir/total*.nc
+    rm $process_dir/maize*.nc
+    rm $process_dir/winterwheat*.nc
+    rm $process_dir/springwheat*.nc
+    rm $process_dir/mainrice*.nc
+    rm $process_dir/secondrice*.nc
+    rm $process_dir/soybean*.nc
+    
 }
 
 CleanUp
